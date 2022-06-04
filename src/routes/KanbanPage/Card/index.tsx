@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useCallback, useRef } from 'react';
+import { useDrag } from 'react-dnd';
 import { useRecoilState } from 'recoil';
 
 import { kanbanListState } from 'states/kanban';
-import { Icardtype } from 'types/kanban';
+import { Idrop, Icardtype } from 'types/kanban';
 import { getBorderColor } from '../_shared/utils';
 
 import styles from './card.module.scss';
@@ -11,10 +12,11 @@ interface Props {
   item: Icardtype;
 }
 
-function Card({ item }: Props) {
+const Card = ({ item }: Props) => {
   const [list, setList] = useRecoilState(kanbanListState);
   const index = list.findIndex((data) => data === item);
   const boderColor = getBorderColor(item.category);
+  const ref = useRef<HTMLTextAreaElement>(null);
 
   const replaceCard = (list: Icardtype[], index: number, data: Icardtype) => {
     return [...list.slice(0, index), data, ...list.slice(index + 1)];
@@ -39,8 +41,58 @@ function Card({ item }: Props) {
     setList([...list.slice(0, index), ...list.slice(index + 1)]);
   };
 
+  const handleResizeHeight = useCallback(() => {
+    if (ref === null || ref.current === null) {
+      return;
+    }
+    ref.current.style.height = '70px';
+    ref.current.style.height = `${ref.current.scrollHeight}px`;
+  }, []);
+
+  const changeItemCategory = (selectedItem: Icardtype, title: string) => {
+    setList((prev) => {
+      return prev.map((e) => {
+        return {
+          ...e,
+          category: e.id === selectedItem.id ? title : e.category,
+        };
+      });
+    });
+  };
+
+  const [{ isDragging }, dragRef] = useDrag(() => ({
+    type: 'card',
+    item,
+    collect: (monitor) => ({
+      isDragging: monitor.isDragging(),
+    }),
+    end: (item, monitor) => {
+      const dropResult: Idrop | null = monitor.getDropResult();
+      if (dropResult) {
+        switch (dropResult.name) {
+          case 'To do':
+            changeItemCategory(item, 'TODO');
+            break;
+          case 'In progress':
+            changeItemCategory(item, 'INPROGRESS');
+            break;
+          case 'Done':
+            changeItemCategory(item, 'DONE');
+            break;
+          case 'Notes & Reference':
+            changeItemCategory(item, 'NOTE');
+            break;
+        }
+      }
+    },
+  }));
+
   return (
-    <div className={styles.cardWrap} style={{ border: `5px solid ${boderColor}` }}>
+    <div
+      className={styles.cardWrap}
+      ref={dragRef}
+      style={{ border: `5px solid ${boderColor}`, opacity: isDragging ? '0.3' : '1' }}
+    >
       <div className={styles.cardHeaderWrap}>
         <span
           className={styles.cardTitleBadge}
@@ -60,7 +112,6 @@ function Card({ item }: Props) {
         value={item.title}
         placeholder='제목을 입력하세요'
         onChange={editTitle}
-        autoFocus
       />
       <textarea
         className={styles.cardContent}
@@ -68,9 +119,11 @@ function Card({ item }: Props) {
         placeholder='내용을 입력하세요'
         spellCheck='false'
         onChange={editText}
+        onInput={handleResizeHeight}
+        ref={ref}
       />
     </div>
   );
-}
+};
 
-export default React.memo(Card);
+export default Card;

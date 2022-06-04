@@ -1,5 +1,5 @@
 {
-  "extends": ["airbnb", "airbnb/hooks", "react-app", "prettier", "plugin:react/recommended", "plugin:prettier/recommended", "../../.eslintrc.json"],
+  "extends": ["airbnb", "airbnb/hooks", "react-app", "prettier", "plugin:react/recommended", "plugin:prettier/recommended"],
   "env": {
     "browser": true,
     "jasmine": true,
@@ -52,7 +52,7 @@
 
     "no-shadow": "off",
     "no-unused-expressions": ["warn"],
-    "@typescript-eslint/no-shadow":  ["error", { "ignoreTypeValueShadow": true }],
+    "@typescript-eslint/no-shadow": "off",
     "@typescript-eslint/naming-convention": "off",
     "@typescript-eslint/unbound-method": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
@@ -84,14 +84,5 @@
         "tsx": "never"
       }
     ]
-  },
-  "overrides": [
-  {
-    "files": ["**/*.ts", "**/*.tsx"],
-    "rules": {
-      "no-shadow": "off",
-      "@typescript-eslint/no-shadow": ["error", { "ignoreTypeValueShadow": true }]
-    }
   }
-  ]
 }
