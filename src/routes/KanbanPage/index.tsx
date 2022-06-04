@@ -6,7 +6,7 @@ import BackGroundImg from './BackGroundImg';
 
 import { KANBAN_LIST_NAME } from './constants';
 import KanbanList from './KanbanList';
-import Card from './KanbanList/Card';
+import Card from './Card';
 
 import styles from './kanbanPage.module.scss';
 

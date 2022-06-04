@@ -1,7 +1,7 @@
 import React from 'react';
 import AddButton from './AddButton';
 import { useDrop } from 'react-dnd';
-import { getColor, getBorderColor } from './utils';
+import { getColor, getBorderColor } from '../_shared/utils';
 
 import styles from './kanbanList.module.scss';
 

@@ -3,7 +3,7 @@ import { useRecoilState } from 'recoil';
 
 import { kanbanListState } from 'states/kanban';
 import { Icardtype } from 'types/kanban';
-import { getBorderColor } from './utils';
+import { getBorderColor } from '../_shared/utils';
 
 import styles from './card.module.scss';
 
@@ -60,6 +60,7 @@ function Card({ item }: Props) {
         value={item.title}
         placeholder='제목을 입력하세요'
         onChange={editTitle}
+        autoFocus
       />
       <textarea
         className={styles.cardContent}
