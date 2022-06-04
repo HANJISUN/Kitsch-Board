@@ -1,0 +1,39 @@
+.backgroundImgContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  max-width: 1480px;
+  height: 100vh;
+  padding: 100px;
+
+  img {
+    z-index: -1;
+    width: 100px;
+    height: auto;
+  }
+
+  .img1 {
+    position: relative;
+    top: 10px;
+    left: 20px;
+  }
+
+  .img2 {
+    position: relative;
+    top: 900px;
+    left: 700px;
+  }
+
+  .img3 {
+    position: relative;
+    top: 500px;
+    left: 340px;
+  }
+
+  .img4 {
+    position: relative;
+    top: 700px;
+    left: 1400px;
+  }
+}

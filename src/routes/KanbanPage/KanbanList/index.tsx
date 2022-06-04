@@ -8,9 +8,10 @@ import styles from './kanbanList.module.scss';
 interface Props {
   dataKey: string;
   name: string;
+  children: JSX.Element | JSX.Element[];
 }
 
-const KanbanList = ({ dataKey, name }: Props) => {
+const KanbanList = ({ dataKey, name, children }: Props) => {
   const color = getColor(dataKey);
   const boderColor = getBorderColor(dataKey);
 
@@ -27,7 +28,8 @@ const KanbanList = ({ dataKey, name }: Props) => {
     <div className={styles.kanbanListWrap} ref={drop}>
       <div className={styles.kanbanBox} style={{ background: `${color}`, border: `5px solid ${boderColor}` }}>
         <div className={styles.kanbanTitle}>{name}</div>
-        <AddButton title={name} />
+        <AddButton dataKey={dataKey} />
+        {children}
       </div>
     </div>
   );

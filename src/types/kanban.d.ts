@@ -5,7 +5,7 @@ export interface Icardtype {
   category: string;
 }
 
-export interface Idrop {
+export interface drop {
   dropEffect: string;
   name: string;
 }

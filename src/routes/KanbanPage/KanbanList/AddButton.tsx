@@ -4,7 +4,11 @@ import { kanbanListState } from 'states/kanban';
 
 import styles from './addButton.module.scss';
 
-const AddButton = ({ title }: { title: string }) => {
+interface Props {
+  dataKey: string;
+}
+
+const AddButton = ({ dataKey }: Props) => {
   const [kanbanList, setKanbanList] = useRecoilState(kanbanListState);
 
   const getId: number = kanbanList.length > 0 ? kanbanList[kanbanList.length - 1].id + 1 : 0;
@@ -16,11 +20,11 @@ const AddButton = ({ title }: { title: string }) => {
         id: getId,
         title: '',
         content: '',
-        category: title,
+        category: dataKey,
         isChecked: false,
       },
     ]);
-  }, [getId, setKanbanList, title]);
+  }, [getId, setKanbanList, dataKey]);
 
   return (
     <div className={styles.addBtnWrap}>

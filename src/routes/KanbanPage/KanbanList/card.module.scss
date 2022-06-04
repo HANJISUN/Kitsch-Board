@@ -1,0 +1,55 @@
+@use '/src/styles/constants/colors';
+
+.cardWrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  background: colors.$WHITE;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px 0.1px rgba(0, 0, 0, 6%);
+
+  .cardHeaderWrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 20px;
+
+    .cardTitleBadge {
+      height: 15px;
+      padding: 0 3px;
+      font-size: 14px;
+      font-weight: 600;
+      color: colors.$GRAY3;
+    }
+
+    .deleteButton {
+      font-size: 20px;
+    }
+  }
+
+  .cardTitle {
+    width: 100%;
+    margin: 10px 0 5px;
+    font-size: 16px;
+    font-weight: 700;
+    color: colors.$BLACK;
+    text-overflow: ellipsis;
+    border: none;
+    outline: 0;
+  }
+
+  .cardContent {
+    height: 70px;
+    overflow: visible;
+    font-size: 14px;
+    font-weight: 300;
+    color: colors.$BLACK;
+    resize: none;
+    border: none;
+    outline: 0;
+  }
+}

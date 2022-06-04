@@ -84,5 +84,13 @@
         "tsx": "never"
       }
     ]
+  },
+  "overrides": [
+  {
+    "rules": {
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": ["error", { "ignoreTypeValueShadow": true }]
+    }
   }
+  ]
 }
