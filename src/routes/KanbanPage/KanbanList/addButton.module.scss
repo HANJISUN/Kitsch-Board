@@ -1,0 +1,33 @@
+@use '/src/styles/constants/colors';
+
+.addBtnWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+
+  .cardAddBtn {
+    height: 24px;
+    padding: 0 10px;
+    font-size: 16px;
+    font-weight: 500;
+    color: colors.$BUTTON_PRIMARY;
+    cursor: pointer;
+    background: colors.$BUTTON_SECONDARY;
+    border: 2px solid colors.$BUTTON_PRIMARY;
+    border-radius: 5px;
+    box-shadow:
+      1px 1px colors.$BUTTON_SHADOW_PRIMARY,
+      3px 3px colors.$BUTTON_SHADOW_PRIMARY,
+      5px 5px colors.$BUTTON_SHADOW_PRIMARY;
+
+    &:hover {
+      color: colors.$BUTTON_SECONDARY;
+      background: colors.$BUTTON_PRIMARY;
+      box-shadow:
+        1px 1px colors.$BUTTON_SHADOW_SECONDARY,
+        3px 3px colors.$BUTTON_SHADOW_SECONDARY,
+        5px 5px colors.$BUTTON_SHADOW_SECONDARY;
+    }
+  }
+}

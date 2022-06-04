@@ -1,5 +1,7 @@
-.app {
-  position: absolute;
-  width: 100%;
-  height: 100%;
+@use '/src/styles/constants/colors';
+
+body {
+  user-select: none;
+  background-color: colors.$BACKGROUND;
+  -webkit-touch-callout: none;
 }
