@@ -1,4 +1,7 @@
 # 🍒 Kitsch-Board 🍒
+
+<br>
+
 ![Generic badge](https://img.shields.io/badge/version-0.1.0-green.svg) [![Netlify Status](https://api.netlify.com/api/v1/badges/b1d87af9-a08d-4e68-a9f4-cd1e12ae07ec/deploy-status)](https://app.netlify.com/sites/kitsch-board/deploys)
 
 `#Kanban` `#TodoList` `#일정관리` `#예쁘게`
