@@ -42,12 +42,14 @@ Kitsch-Board를 통해 단조로운 일상 속에서 개인 일정을 관리하�
 <br>
 
 ## 🔍 Preview
-![Kapture_2022-06-05_at_14_13_15_AdobeCreativeCloudExpress_AdobeCreativeCloudExpress](https://user-images.githubusercontent.com/88502596/172038086-4f064742-93ac-4eb8-963c-738dcaf3d291.gif)
+![Hnet-image (1)](https://user-images.githubusercontent.com/88502596/172038655-7e689206-341b-4083-9b10-2af37336ff96.gif)
 
 <br>
 
 ## 🛠 Features
-- Screen
+- [x] 일정 추가/수정/삭제 기능 구현
+- [x] Drag and Drop으로 일정 상태 변경
+- [x] LocalStorage에 저장 및 로드
 
 <br>
 
